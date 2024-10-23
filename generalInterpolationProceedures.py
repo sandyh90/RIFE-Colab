@@ -107,7 +107,7 @@ def extractFrames(inputFile, projectFolder, mode, interpolatorConfig: Interpolat
             mpdecimateOptions += [mpdecimate]
         run_and_print_output(
             [FFMPEG4, '-i', inputFile, '-map_metadata', '-1', '-pix_fmt', 'rgb24', '-copyts', '-r',
-             str(GlobalValues.timebase), '-frame_pts', 'true'] + mpdecimateOptions + ['-qscale:v', '1', 'original_frames/%15d.png'])
+             str(GlobalValues.timebase), '-vsync', '0', '-frame_pts', 'true'] + mpdecimateOptions + ['-qscale:v', '1', 'original_frames/%15d.png'])
 
 
 def runInterpolator(projectFolder, interpolatorConfig: InterpolatorConfig, outputFPS):
